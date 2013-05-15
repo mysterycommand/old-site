@@ -3,12 +3,12 @@ body {
 }
 
 .container {
-    background: #fafafa;
-    margin: 0 auto;
-    max-width: 640px;
-    width: 100%;
+    background:#fafafa;
+    margin:0 auto;
+    max-width:640px;
+    width:100%
 }
 
 img {
-    width: 100%;
+    width:100%;
 }
