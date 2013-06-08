@@ -19,8 +19,11 @@
     "strict": true,
     "trailing": true,
     "smarttabs": true,
-    "global": [
-        "define": true
-        "require": true
+    "globals": [
+        "require": true,
+        "define": true,
+        "describe": true,
+        "it": true,
+        "should": true
     ]
 }
