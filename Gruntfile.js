@@ -56,7 +56,7 @@ module.exports = function (grunt) {
             options: {
                 port: 9000,
                 // change this to '0.0.0.0' to access the server from outside
-                hostname: 'localhost'
+                hostname: '0.0.0.0'
             },
             livereload: {
                 options: {
@@ -64,6 +64,7 @@ module.exports = function (grunt) {
                         return [
                             mountFolder(connect, '.tmp'),
                             mountFolder(connect, yeomanConfig.app),
+                            mountFolder(connect, '.'),
                             lrSnippet
                         ];
                     }
@@ -74,7 +75,7 @@ module.exports = function (grunt) {
                     middleware: function (connect) {
                         return [
                             mountFolder(connect, '.tmp'),
-                            mountFolder(connect, 'test')
+                            mountFolder(connect, '.')
                         ];
                     }
                 }
@@ -121,8 +122,9 @@ module.exports = function (grunt) {
         mocha: {
             all: {
                 options: {
-                    run: true,
-                    urls: ['http://localhost:<%= connect.options.port %>/index.html']
+                    run: false,
+                    reporter: 'Spec',
+                    urls: ['http://localhost:<%= connect.options.port %>/test/index.html']
                 }
             }
         },
