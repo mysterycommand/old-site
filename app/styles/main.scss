@@ -21,7 +21,7 @@ html,
 body {
     height: 100%;
 
-    @media screen and (min-width: 321px) {
+    @media screen and (min-width: 569px) {
         max-height: 300px;
     }
 }
@@ -62,7 +62,7 @@ h1 {
 
     @media screen and (min-width: 321px) {
         margin: 0.25em 1em;
-        margin-top: 5.4em;
+        margin-top: 4.25em;
         width: auto;
     }
 }
@@ -85,4 +85,24 @@ li {
     display: inline-block;
 }
 
+[rel="tel"] {
+    display: none;
+    visibility: hidden;
+}
 
+@media screen and (min-width: 569px) {
+    .contact li { display: block; }
+
+    a[href^="mailto"]:after { content: ': ' attr(data-link); }
+    a[href^="tel"]:after { content: '\\Text: ' attr(data-link); }
+
+    a[href^="sms"] {
+        display: none;
+        visibility: hidden;
+    }
+
+    [rel="tel"] {
+        display: block;
+        visibility: visible;
+    }
+}
