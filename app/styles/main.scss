@@ -1,5 +1,6 @@
 @import "compass/css3/transition";
 
+/* http://automatsvet.cz/traffic/ */
 @font-face {
     font-family: 'alte_din_1451_mittelschriftRg';
     src: url('din/din1451alt-webfont.eot');
@@ -11,6 +12,20 @@
     font-style: normal;
 }
 
+%reset {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+
+    @media screen and (min-width: 321px) {
+        max-height: 300px;
+    }
+}
+
 body {
     background: #e2e2e2;
     font-family: sans-serif;
@@ -19,6 +34,7 @@ body {
 
 .container {
     background: #fafafa;
+    height: 100%;
     margin: 0 auto;
     max-width: 568px;
     overflow: hidden;
@@ -40,6 +56,33 @@ img {
 
 h1 {
     font-family: 'alte_din_1451_mittelschriftRg';
+    font-size: 1.625em;
+    margin: 0 auto 0.25em;
+    width: 80%;
+
+    @media screen and (min-width: 321px) {
+        margin: 0.25em 1em;
+        margin-top: 5.4em;
+        width: auto;
+    }
+}
+
+ul {
+    @extend %reset;
+
+    font-size: 0.75em;
+    list-style: none;
+    margin: 0.5417em auto;
+    width: 80%;
+
+    @media screen and (min-width: 321px) {
+        margin: 0.5417em 2.166666667em;
+        width: auto;
+    }
+}
+
+li {
+    display: inline-block;
 }
 
 
