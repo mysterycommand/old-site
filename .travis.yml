@@ -43,7 +43,7 @@ after_success:
     # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
     - git submodule add -b master https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} site > /dev/null 2>&1
     - cd site
-    - node ../app/scripts/util/cleanup.js ../dist/index.html
+    # - node ../app/scripts/util/cleanup.js ../dist/index.html
     - if git checkout master; then git checkout -b master; fi
     - git rm -r .
     - cp -R ../dist/* .
