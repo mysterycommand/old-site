@@ -192,7 +192,7 @@ module.exports = function (grunt) {
                     //
                     include: '../bower_components/requirejs/require',
                     mainConfigFile: yeomanConfig.app + '/scripts/config.js',
-                    out: yeomanConfig.dist + '/scripts/app.min.js'
+                    out: '.tmp/scripts/app.min.js'
                 }
             }
         },
