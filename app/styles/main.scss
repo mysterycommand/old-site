@@ -1,20 +1,7 @@
-//@import 'compass/css3/transition';
 
-/* http://automatsvet.cz/traffic/ */
-//@font-face {
-//    font-family: 'alte_din_1451_mittelschriftRg';
-//    src: url('fonts/din1451alt-webfont.eot');
-//    src: url('fonts/din1451alt-webfont.eot?#iefix') format('embedded-opentype'),
-//         url('fonts/din1451alt-webfont.woff') format('woff'),
-//         url('fonts/din1451alt-webfont.ttf') format('truetype'),
-//         url('fonts/din1451alt-webfont.svg#alte_din_1451_mittelschriftRg') format('svg');
-//    font-weight: normal;
-//    font-style: normal;
-//}
-
+$dark: #444;
 $bkgd: #e2e2e2;
 $fore: #fafafa;
-$text: #444;
 
 %reset {
     margin: 0;
@@ -22,41 +9,39 @@ $text: #444;
 }
 
 %font-head {
-    color: $text;
-    font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    font-family: "HelveticaNeue-UltraLight", "Helvetica Neue UltraLight", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 100;
     letter-spacing: 1px;
 }
 
+%font-head-backlit {
+    @extend %font-head;
+    background: $dark;
+    color: $fore;
+}
+
 %font-body {
-    color: $text;
-    font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
 }
 
 html,
 body {
     height: 100%;
-
-//    @media screen and (min-width: 569px) {
-//        max-height: 300px;
-//    }
 }
 
 body {
     @extend %font-body;
 
     background: $bkgd;
+    color: $dark;
     margin: 0;
 }
 
-h1, h2, h3 {
-    @extend %font-head;
-}
+h2, h3 { @extend %font-head-backlit; }
+h1, h4, h5, h6 { @extend %font-head; }
 
-h4, h5, h6 {
-    @extend %font-body;
-}
+small { font-style: italic; }
 
 .container {
     background: $fore;
@@ -67,104 +52,36 @@ h4, h5, h6 {
     width: 100%;
 }
 
-//img {
-//    max-height: 320px;
-//    max-width: 320px;
-//    width: 100%;
-
-//    @media (min-width: 480px) {
-//        height: 300px;
-//        width: auto;
-//        float: right;
-//    }
-//}
-
-//h1 {
-////    font-family: 'alte_din_1451_mittelschriftRg';
-//    font-size: 1.625em;
-//    font-weight: 100;
-//    margin: 0 auto 0.25em;
-//    width: 80%;
-
-//    @media screen and (min-width: 321px) {
-//        margin: 0.25em 1em;
-//        margin-top: 4.25em;
-//        width: auto;
-//    }
-//}
-
 ul {
     @extend %reset;
     list-style: none;
-
-//    font-size: 0.75em;
-//    margin: 0.5417em auto;
-//    width: 80%;
-
-//    @media screen and (min-width: 321px) {
-//        margin: 0.5417em 2.166666667em;
-//        width: auto;
-//    }
 }
-
-//li {
-//    display: inline-block;
-//}
 
 .touch .p-contact {
-    li:last-of-type {
-        a:first-of-type {
-            display: inline-block;
-            visibility: visible;
-        }
-        a:last-of-type {
-            display: none;
-            visibility: hidden;
-        }
-    }
-}
-
-.no-touch .p-contact {
-//    .contact li { display: block; }
-
-//    a[href^='mailto']:after { content: ': ' attr(title); }
-//    a[href^='tel']:after { content: ' or Text: ' attr(title); }
-
-//    a[href^='sms'] {
-//        display: none;
-//        visibility: hidden;
-//    }
-
-//    a[href*='Austin,+TX']:after { content: ': ' attr(title); }
-    .p-tel.tel {
-        cursor: default;
-        pointer-events: none;
-
-        a {
-            color: $text;
-            text-decoration: none;
-        }
-    }
-
-    .p-tel.sms {
+    .p-adr a:last-of-type {
         display: none;
         visibility: hidden;
     }
+}
 
-    li:last-of-type {
+.no-touch {
+    a[href^="tel"] {
+        color: $dark;
+        cursor: default;
+        pointer-events: none;
+        text-decoration: none;
+    }
+    .p-contact .p-adr {
         a:first-of-type {
-            display: none;
-            visibility: hidden;
-        }
-        a:last-of-type {
             display: inline-block;
             visibility: visible;
         }
+        a:last-of-type {
+            display: none;
+            visibility: hidden;
+        }
     }
 }
-
-//@media screen and (min-width: 569px) {
-//}
 
 
 
