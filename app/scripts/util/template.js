@@ -15,11 +15,7 @@ define([
 
     'use strict';
 
-    describe('', function () {
-        it('should exist', function() {
-            should.exist();
-        });
-    });
+    return {};
 
 });
 

@@ -1,108 +1,196 @@
-@import "compass/css3/transition";
+//@import 'compass/css3/transition';
 
 /* http://automatsvet.cz/traffic/ */
-@font-face {
-    font-family: 'alte_din_1451_mittelschriftRg';
-    src: url('fonts/din1451alt-webfont.eot');
-    src: url('fonts/din1451alt-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/din1451alt-webfont.woff') format('woff'),
-         url('fonts/din1451alt-webfont.ttf') format('truetype'),
-         url('fonts/din1451alt-webfont.svg#alte_din_1451_mittelschriftRg') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
+//@font-face {
+//    font-family: 'alte_din_1451_mittelschriftRg';
+//    src: url('fonts/din1451alt-webfont.eot');
+//    src: url('fonts/din1451alt-webfont.eot?#iefix') format('embedded-opentype'),
+//         url('fonts/din1451alt-webfont.woff') format('woff'),
+//         url('fonts/din1451alt-webfont.ttf') format('truetype'),
+//         url('fonts/din1451alt-webfont.svg#alte_din_1451_mittelschriftRg') format('svg');
+//    font-weight: normal;
+//    font-style: normal;
+//}
+
+$bkgd: #e2e2e2;
+$fore: #fafafa;
+$text: #444;
 
 %reset {
     margin: 0;
     padding: 0;
 }
 
+%font-head {
+    color: $text;
+    font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    font-weight: 100;
+}
+
+%font-body {
+    color: $text;
+    font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    font-weight: 300;
+}
+
 html,
 body {
     height: 100%;
 
-    @media screen and (min-width: 569px) {
-        max-height: 300px;
-    }
+//    @media screen and (min-width: 569px) {
+//        max-height: 300px;
+//    }
 }
 
 body {
-    background: #e2e2e2;
-    font-family: sans-serif;
+    @extend %font-body;
+
+    background: $bkgd;
     margin: 0;
 }
 
+h1, h2, h3 {
+    @extend %font-head;
+}
+
+h4, h5, h6 {
+    @extend %font-body;
+}
+
 .container {
-    background: #fafafa;
-    height: 100%;
+    background: $fore;
     margin: 0 auto;
-    max-width: 568px;
+    max-width: 8.5in;
     overflow: hidden;
     position: relative;
     width: 100%;
 }
 
-img {
-    max-height: 320px;
-    max-width: 320px;
-    width: 100%;
+//img {
+//    max-height: 320px;
+//    max-width: 320px;
+//    width: 100%;
 
-    @media (min-width: 480px) {
-        height: 300px;
-        width: auto;
-        float: right;
-    }
-}
+//    @media (min-width: 480px) {
+//        height: 300px;
+//        width: auto;
+//        float: right;
+//    }
+//}
 
-h1 {
-    font-family: 'alte_din_1451_mittelschriftRg';
-    font-size: 1.625em;
-    margin: 0 auto 0.25em;
-    width: 80%;
+//h1 {
+////    font-family: 'alte_din_1451_mittelschriftRg';
+//    font-size: 1.625em;
+//    font-weight: 100;
+//    margin: 0 auto 0.25em;
+//    width: 80%;
 
-    @media screen and (min-width: 321px) {
-        margin: 0.25em 1em;
-        margin-top: 4.25em;
-        width: auto;
-    }
-}
+//    @media screen and (min-width: 321px) {
+//        margin: 0.25em 1em;
+//        margin-top: 4.25em;
+//        width: auto;
+//    }
+//}
 
 ul {
     @extend %reset;
-
-    font-size: 0.75em;
     list-style: none;
-    margin: 0.5417em auto;
-    width: 80%;
 
-    @media screen and (min-width: 321px) {
-        margin: 0.5417em 2.166666667em;
-        width: auto;
+//    font-size: 0.75em;
+//    margin: 0.5417em auto;
+//    width: 80%;
+
+//    @media screen and (min-width: 321px) {
+//        margin: 0.5417em 2.166666667em;
+//        width: auto;
+//    }
+}
+
+//li {
+//    display: inline-block;
+//}
+
+.touch .p-contact {
+    li:last-of-type {
+        a:first-of-type {
+            display: inline-block;
+            visibility: visible;
+        }
+        a:last-of-type {
+            display: none;
+            visibility: hidden;
+        }
     }
 }
 
-li {
-    display: inline-block;
-}
+.no-touch .p-contact {
+//    .contact li { display: block; }
 
-[rel="tel"] {
-    display: none;
-    visibility: hidden;
-}
+//    a[href^='mailto']:after { content: ': ' attr(title); }
+//    a[href^='tel']:after { content: ' or Text: ' attr(title); }
 
-@media screen and (min-width: 569px) {
-    .contact li { display: block; }
+//    a[href^='sms'] {
+//        display: none;
+//        visibility: hidden;
+//    }
 
-    a[href^="mailto"]:after { content: ': ' attr(data-link); }
-    a[href^="tel"]:after { content: '\\Text: ' attr(data-link); }
+//    a[href*='Austin,+TX']:after { content: ': ' attr(title); }
+    .p-tel.tel {
+        cursor: default;
+        pointer-events: none;
 
-    a[href^="sms"] {
+        a {
+            color: $text;
+            text-decoration: none;
+        }
+    }
+
+    .p-tel.sms {
         display: none;
         visibility: hidden;
     }
 
-    [rel="tel"] {
-        display: block;
-        visibility: visible;
+    li:last-of-type {
+        a:first-of-type {
+            display: none;
+            visibility: hidden;
+        }
+        a:last-of-type {
+            display: inline-block;
+            visibility: visible;
+        }
     }
 }
+
+//@media screen and (min-width: 569px) {
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
