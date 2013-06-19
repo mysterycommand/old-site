@@ -4,6 +4,7 @@ $bkgd: #e2e2e2;
 $fore: #fafafa;
 
 $page-margin: 1in;
+$page-jut: 0.25in;
 
 %reset {
     margin: 0;
@@ -43,12 +44,27 @@ body {
 h1 {
     @extend %font-head;
     margin-top: 0.15in;
-    padding-top: 0.85in;
+    margin-bottom: 0.15in;
+    padding-top: 0.65in;
 }
+
+h1 > a {
+    @extend %font-head-backlit;
+    display: inline-block;
+    padding: 0 $page-jut;
+    margin-left: -$page-jut;
+    text-decoration: none;
+
+    &:hover {
+        font-style: italic;
+    }
+}
+
 h2 {
     @extend %font-head-backlit;
-    padding: 0 0.125in;
+    padding: 0 $page-jut;
 }
+
 h3, h4, h5, h6 { @extend %font-body; }
 
 h1, h3, h4, h5, h6 {
@@ -56,11 +72,12 @@ h1, h3, h4, h5, h6 {
     margin-right: $page-margin;
 }
 h2 {
-    margin-left: $page-margin - 0.125in;
-    margin-right: $page-margin - 0.125in;
+    margin-left: $page-margin - $page-jut;
+    margin-right: $page-margin - $page-jut;
 }
 
 h2, h4, small { font-style: italic; }
+
 small {
     float: right;
     line-height: 1.45;
@@ -68,6 +85,10 @@ small {
 
 aside {
     overflow: hidden;
+
+    .p-summary {
+        margin-bottom: 0.15in;
+    }
 }
 
 main {
@@ -81,7 +102,7 @@ ul {
 }
 
 footer {
-    margin-bottom: 1.5in;
+    margin-bottom: $page-margin;
 }
 
 .container {
@@ -101,10 +122,12 @@ footer {
 .u-photo {
     float: left;
     margin-left: $page-margin;
+    margin-right: 0.15in;
 }
 
+
 .tag { display: inline-block; }
-.tag:after { content: ' + '; }
+.tag:after { content: ', '; }
 .tag:last-child:after { content: ''; }
 //.tag:last-child:before { content: ' and '; }
 
@@ -122,6 +145,7 @@ footer {
         pointer-events: none;
         text-decoration: none;
     }
+
     .p-contact .p-adr {
         a:first-of-type {
             display: inline-block;
@@ -131,6 +155,35 @@ footer {
             display: none;
             visibility: hidden;
         }
+    }
+}
+
+.p-skill,
+.p-affiliation {
+    margin: 0 $page-margin;
+    text-align: justify;
+
+    h2 {
+        margin-left: -$page-jut;
+        margin-right: -$page-jut;
+    }
+
+    article {
+        display: inline-block;
+        text-align: left;
+        vertical-align: top;
+        width: 32%
+    }
+
+    .break {
+        display: inline-block;
+        width: 100%;
+    }
+
+    h3, h4, h5, ul {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
     }
 }
 
