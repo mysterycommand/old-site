@@ -1,25 +1,57 @@
-//@import "compass/css3/border-radius";
+@import "compass/css3/border-radius";
 
-$dark: #444;
+@function inchesToPercentageOf($inches, $of) {
+    @return percentage($inches / $of);
+}
+
+$oneContainer: inchesToPercentageOf(1, 8.5);
+$fourthContainer: inchesToPercentageOf(0.25, 8.5);
+
+$oneMain: inchesToPercentageOf(1, 6.5);
+$twoMain: inchesToPercentageOf(2, 6.5);
+$eighthMain: inchesToPercentageOf(0.125, 6.5);
+
+$copy: #313131;
 $bkgd: #e2e2e2;
 $fore: #fafafa;
-
-$page-margin: percentage(1 / 8.5);
-$page-jut: percentage(0.25 / 8.5);
 
 %reset {
     margin: 0;
     padding: 0;
 }
 
+/**
+ * Using %clearfix-micro from OOCSS
+ * @see https://github.com/stubbornella/oocss/blob/master/oocss/src/components/utils/_clearfix-me.scss#L31
+ */
+%clearfix {
+    zoom: 1;
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
 %font-head {
-    font-family: "HelveticaNeue-UltraLight", "Helvetica Neue UltraLight", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: "HelveticaNeue-UltraLight",
+                 "Helvetica Neue UltraLight",
+                 "HelveticaNeue-Light",
+                 "Helvetica Neue Light",
+                 "Helvetica Neue",
+                 Helvetica,
+                 Arial,
+                 "Lucida Grande",
+                 sans-serif;
     font-weight: 100;
     letter-spacing: 1px;
 }
 
 %backlit {
-    background: $dark;
+    background: $copy;
     color: $fore;
 }
 
@@ -29,9 +61,17 @@ $page-jut: percentage(0.25 / 8.5);
 }
 
 %font-body {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: "HelveticaNeue-Light",
+                 "Helvetica Neue Light",
+                 "Helvetica Neue",
+                 Helvetica,
+                 Arial,
+                 "Lucida Grande",
+                 sans-serif;
     font-weight: 300;
 }
+
+%debug { background: orange; }
 
 html,
 body {
@@ -42,8 +82,52 @@ body {
     @extend %font-body;
 
     background: $bkgd;
-    color: $dark;
+    color: $copy;
     margin: 0;
+}
+
+h1 {
+    @extend %font-head;
+
+    & > a {
+        @extend %font-head-backlit;
+        display: inline-block;
+        margin-left: 0 - $fourthContainer;
+        padding: 0 $fourthContainer;
+        text-decoration: none;
+
+        &:hover {
+            font-style: italic;
+        }
+    }
+}
+h2 {
+    @extend %font-head-backlit;
+    margin: 1em (0 - $fourthContainer) 0;
+
+    & > a {
+        color: inherit;
+        display: block;
+        padding: 0 $fourthContainer;
+        text-decoration: none;
+
+        &:hover {
+            font-style: italic;
+        }
+    }
+}
+h3, h4, h5, h6 { @extend %font-body; }
+h3, h4, h5 { margin-bottom: 0; }
+h4, h5 { margin-top: 0; }
+h4, small { font-style: italic; }
+small {
+    float: right;
+    line-height: 1.45;
+}
+
+ul {
+    @extend %reset;
+    list-style: none;
 }
 
 .h-resume {
@@ -56,63 +140,44 @@ body {
 }
 
 .inner {
-    margin: $page-margin;
+    margin: $oneContainer;
 }
 
-h1 {
-    @extend %font-head;
-}
+.hd {
+    @extend %clearfix;
 
-h1 > a {
-    @extend %font-head-backlit;
-    display: inline-block;
-    margin-left: -$page-jut;
-    padding: 0 $page-jut;
-    text-decoration: none;
+    .u-logo {
+        float: right;
+        max-width: 2in;
+        width: $twoMain;
+    }
 
-    &:hover {
-        font-style: italic;
+    .p-summary {
+        margin-bottom: $eighthMain;
+    }
+
+    .u-photo {
+        float: left;
+        margin-right: $eighthMain;
+        max-width: 1in;
+        width: $oneMain;
     }
 }
 
-h2 {
-    @extend %font-head-backlit;
-    margin: 0 -$page-jut;
-    padding: 0 $page-jut;
+.tag {
+    @include border-radius(1em);
+
+    background: $bkgd;
+    display: inline-block;
+    font-size: 0.75em;
+    margin: 0.2em 0 0.25em;
+    padding: 0.125em 0.5em;
 }
-
-//h3, h4, h5, h6 { @extend %font-body; }
-
-//h1, h3, h4, h5, h6 {
-//    margin-left: $page-margin;
-//    margin-right: $page-margin;
-//}
-
-//h2 {
-//    margin-left: $page-margin - $page-jut;
-//    margin-right: $page-margin - $page-jut;
-//}
-
-//h2, h3 {
-//    margin-bottom: 0;
-//}
-
-//h4, h5 {
-//    margin-bottom: 0;
-//    margin-top: 0;
-//}
-
-//h2, h4, small { font-style: italic; }
-
-//small {
-//    float: right;
-//    line-height: 1.45;
-//}
 
 //aside {
 //    overflow: hidden;
-//    margin-left: $page-margin;
-//    margin-right: $page-margin;
+//    margin-left: $oneContainer;
+//    margin-right: $oneContainer;
 
 //    .p-summary,
 //    .p-contact,
@@ -133,23 +198,23 @@ h2 {
 //ul {
 //    @extend %reset;
 //    list-style: none;
-//    margin-left: $page-margin;
+//    margin-left: $oneContainer;
 //}
 
 //footer {
-//    margin-bottom: $page-margin;
+//    margin-bottom: $oneContainer;
 //}
 
 //.u-logo {
 //    float: right;
-//    margin-right: $page-margin;
+//    margin-right: $oneContainer;
 //    max-width: 2in;
 //    width: percentage(2 / 8.5);
 //}
 
 //.u-photo {
 //    float: left;
-//    margin-left: $page-margin;
+//    margin-left: $oneContainer;
 //    margin-right: 0.15in;
 //}
 
@@ -168,7 +233,7 @@ h2 {
 
 //.no-touch {
 //    a[href^="tel"] {
-//        color: $dark;
+//        color: $copy;
 //        cursor: default;
 //        pointer-events: none;
 //        text-decoration: none;
@@ -188,12 +253,12 @@ h2 {
 
 //.p-skill,
 //.p-affiliation {
-//    margin: 0 $page-margin;
+//    margin: 0 $oneContainer;
 //    text-align: justify;
 
 //    h2 {
-//        margin-left: -$page-jut;
-//        margin-right: -$page-jut;
+//        margin-left: -$fourthContainer;
+//        margin-right: -$fourthContainer;
 //    }
 
 //    article {
