@@ -3,6 +3,8 @@ $dark: #444;
 $bkgd: #e2e2e2;
 $fore: #fafafa;
 
+$page-margin: 1in;
+
 %reset {
     margin: 0;
     padding: 0;
@@ -38,10 +40,49 @@ body {
     margin: 0;
 }
 
-h2, h3 { @extend %font-head-backlit; }
-h1, h4, h5, h6 { @extend %font-head; }
+h1 {
+    @extend %font-head;
+    margin-top: 0.15in;
+    padding-top: 0.85in;
+}
+h2 {
+    @extend %font-head-backlit;
+    padding: 0 0.125in;
+}
+h3, h4, h5, h6 { @extend %font-body; }
 
-small { font-style: italic; }
+h1, h3, h4, h5, h6 {
+    margin-left: $page-margin;
+    margin-right: $page-margin;
+}
+h2 {
+    margin-left: $page-margin - 0.125in;
+    margin-right: $page-margin - 0.125in;
+}
+
+h2, h4, small { font-style: italic; }
+small {
+    float: right;
+    line-height: 1.45;
+}
+
+aside {
+    overflow: hidden;
+}
+
+main {
+    clear: both;
+}
+
+ul {
+    @extend %reset;
+    list-style: none;
+    margin-left: $page-margin;
+}
+
+footer {
+    margin-bottom: 1.5in;
+}
 
 .container {
     background: $fore;
@@ -52,10 +93,20 @@ small { font-style: italic; }
     width: 100%;
 }
 
-ul {
-    @extend %reset;
-    list-style: none;
+.u-logo {
+    float: right;
+    margin-right: $page-margin;
 }
+
+.u-photo {
+    float: left;
+    margin-left: $page-margin;
+}
+
+.tag { display: inline-block; }
+.tag:after { content: ' + '; }
+.tag:last-child:after { content: ''; }
+//.tag:last-child:before { content: ' and '; }
 
 .touch .p-contact {
     .p-adr a:last-of-type {
