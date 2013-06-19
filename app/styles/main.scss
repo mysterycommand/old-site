@@ -1,10 +1,11 @@
+//@import "compass/css3/border-radius";
 
 $dark: #444;
 $bkgd: #e2e2e2;
 $fore: #fafafa;
 
-$page-margin: 1in;
-$page-jut: 0.25in;
+$page-margin: percentage(1 / 8.5);
+$page-jut: percentage(0.25 / 8.5);
 
 %reset {
     margin: 0;
@@ -17,10 +18,14 @@ $page-jut: 0.25in;
     letter-spacing: 1px;
 }
 
-%font-head-backlit {
-    @extend %font-head;
+%backlit {
     background: $dark;
     color: $fore;
+}
+
+%font-head-backlit {
+    @extend %font-head;
+    @extend %backlit;
 }
 
 %font-body {
@@ -41,18 +46,28 @@ body {
     margin: 0;
 }
 
+.h-resume {
+    background: $fore;
+    margin: 0 auto;
+    max-width: 8.5in;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.inner {
+    margin: $page-margin;
+}
+
 h1 {
     @extend %font-head;
-    margin-top: 0.15in;
-    margin-bottom: 0.15in;
-    padding-top: 0.65in;
 }
 
 h1 > a {
     @extend %font-head-backlit;
     display: inline-block;
-    padding: 0 $page-jut;
     margin-left: -$page-jut;
+    padding: 0 $page-jut;
     text-decoration: none;
 
     &:hover {
@@ -62,130 +77,199 @@ h1 > a {
 
 h2 {
     @extend %font-head-backlit;
+    margin: 0 -$page-jut;
     padding: 0 $page-jut;
 }
 
-h3, h4, h5, h6 { @extend %font-body; }
+//h3, h4, h5, h6 { @extend %font-body; }
 
-h1, h3, h4, h5, h6 {
-    margin-left: $page-margin;
-    margin-right: $page-margin;
-}
-h2 {
-    margin-left: $page-margin - $page-jut;
-    margin-right: $page-margin - $page-jut;
-}
+//h1, h3, h4, h5, h6 {
+//    margin-left: $page-margin;
+//    margin-right: $page-margin;
+//}
 
-h2, h4, small { font-style: italic; }
+//h2 {
+//    margin-left: $page-margin - $page-jut;
+//    margin-right: $page-margin - $page-jut;
+//}
 
-small {
-    float: right;
-    line-height: 1.45;
-}
+//h2, h3 {
+//    margin-bottom: 0;
+//}
 
-aside {
-    overflow: hidden;
+//h4, h5 {
+//    margin-bottom: 0;
+//    margin-top: 0;
+//}
 
-    .p-summary {
-        margin-bottom: 0.15in;
-    }
-}
+//h2, h4, small { font-style: italic; }
 
-main {
-    clear: both;
-}
+//small {
+//    float: right;
+//    line-height: 1.45;
+//}
 
-ul {
-    @extend %reset;
-    list-style: none;
-    margin-left: $page-margin;
-}
+//aside {
+//    overflow: hidden;
+//    margin-left: $page-margin;
+//    margin-right: $page-margin;
 
-footer {
-    margin-bottom: $page-margin;
-}
+//    .p-summary,
+//    .p-contact,
+//    .u-photo {
+//        margin-left: 0;
+//        margin-right: 0;
+//    }
 
-.container {
-    background: $fore;
-    margin: 0 auto;
-    max-width: 8.5in;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-}
+//    .p-summary {
+//        margin-bottom: 0.15in;
+//    }
+//}
 
-.u-logo {
-    float: right;
-    margin-right: $page-margin;
-}
+//main {
+//    clear: both;
+//}
 
-.u-photo {
-    float: left;
-    margin-left: $page-margin;
-    margin-right: 0.15in;
-}
+//ul {
+//    @extend %reset;
+//    list-style: none;
+//    margin-left: $page-margin;
+//}
+
+//footer {
+//    margin-bottom: $page-margin;
+//}
+
+//.u-logo {
+//    float: right;
+//    margin-right: $page-margin;
+//    max-width: 2in;
+//    width: percentage(2 / 8.5);
+//}
+
+//.u-photo {
+//    float: left;
+//    margin-left: $page-margin;
+//    margin-right: 0.15in;
+//}
 
 
-.tag { display: inline-block; }
-.tag:after { content: ', '; }
-.tag:last-child:after { content: ''; }
-//.tag:last-child:before { content: ' and '; }
+////.tag { display: inline-block; }
+////.tag:after { content: ', '; }
+////.tag:last-child:after { content: ''; }
+////.tag:last-child:before { content: ' and '; }
 
-.touch .p-contact {
-    .p-adr a:last-of-type {
-        display: none;
-        visibility: hidden;
-    }
-}
+//.touch .p-contact {
+//    .p-adr a:last-of-type {
+//        display: none;
+//        visibility: hidden;
+//    }
+//}
 
-.no-touch {
-    a[href^="tel"] {
-        color: $dark;
-        cursor: default;
-        pointer-events: none;
-        text-decoration: none;
-    }
+//.no-touch {
+//    a[href^="tel"] {
+//        color: $dark;
+//        cursor: default;
+//        pointer-events: none;
+//        text-decoration: none;
+//    }
 
-    .p-contact .p-adr {
-        a:first-of-type {
-            display: inline-block;
-            visibility: visible;
-        }
-        a:last-of-type {
-            display: none;
-            visibility: hidden;
-        }
-    }
-}
+//    .p-contact .p-adr {
+//        a:first-of-type {
+//            display: inline-block;
+//            visibility: visible;
+//        }
+//        a:last-of-type {
+//            display: none;
+//            visibility: hidden;
+//        }
+//    }
+//}
 
-.p-skill,
-.p-affiliation {
-    margin: 0 $page-margin;
-    text-align: justify;
+//.p-skill,
+//.p-affiliation {
+//    margin: 0 $page-margin;
+//    text-align: justify;
 
-    h2 {
-        margin-left: -$page-jut;
-        margin-right: -$page-jut;
-    }
+//    h2 {
+//        margin-left: -$page-jut;
+//        margin-right: -$page-jut;
+//    }
 
-    article {
-        display: inline-block;
-        text-align: left;
-        vertical-align: top;
-        width: 32%
-    }
+//    article {
+//        display: inline-block;
+//        text-align: left;
+//        vertical-align: top;
+//    }
 
-    .break {
-        display: inline-block;
-        width: 100%;
-    }
+//    .break {
+//        display: inline-block;
+//        width: 100%;
+//    }
 
-    h3, h4, h5, ul {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-    }
-}
+//    h3, h4, h5, ul {
+//        margin-left: 0;
+//        margin-right: 0;
+//    }
+//}
+
+//.p-skill {
+//    article {
+//        width: 48%
+//    }
+
+//    h3 { margin-bottom: 0.25em; }
+//    li {
+//        border-bottom: 1px solid $fore;
+//        border-top: 1px solid $fore;
+//        overflow: hidden;
+//        padding-bottom: 0.25em;
+//        padding-top: 0.2em;
+
+//        &:hover {
+//            border-bottom: 1px dotted $bkgd;
+//            border-top: 1px dotted $bkgd;
+//        }
+//    }
+//}
+
+//.p-skill .p-summary,
+//.tag {
+//    @include border-radius(1em);
+
+//    background: $bkgd;
+//    display: inline-block;
+//    font-size: 0.75em;
+//    padding: 0.125em 0.5em;
+//}
+
+//.tags .tag {
+//    margin-bottom: 0.25em;
+//    margin-top: 0.2em;
+//}
+
+//.p-duration {
+//    font-size: 0.5em;
+//    text-transform: uppercase;
+//    vertical-align: 15%;
+//}
+
+//.p-rating {
+//    float: right;
+//    font-size: 0.625em;
+//    line-height: 1;
+//    margin-top: 0.45em;
+//}
+
+//.pale {
+//    color: $bkgd;
+//}
+
+//.p-affiliation {
+//    article {
+//        width: 32%
+//    }
+//}
 
 
 
