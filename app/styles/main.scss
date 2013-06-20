@@ -6,12 +6,33 @@
     @return percentage($inches / $of);
 }
 
-$oneContainer: inchesToPercentageOf(1, 8.5);
-$fourthContainer: inchesToPercentageOf(0.25, 8.5);
+/**
+ * Based on .hideFully from OOCSS
+ * @see https://github.com/stubbornella/oocss/blob/master/oocss/src/components/utils/_hideFully.scss#L13
+ */
+@mixin hideFully() {
+    display: none !important;
+    visibility: hidden;
+}
 
+@mixin showFully($display: 'block') {
+    display: $display;
+    visibility: visible;
+}
+
+$fourthContainer: inchesToPercentageOf(0.25, 8.5);
+$oneContainer: inchesToPercentageOf(1, 8.5);
+$twoContainer: inchesToPercentageOf(2, 8.5);
+
+$oneTwentyEighthMain: inchesToPercentageOf(0.0078125, 6.5);
+$sixtyFourthMain: inchesToPercentageOf(0.015625, 6.5);
+$thirtySecondMain: inchesToPercentageOf(0.03125, 6.5);
+$sixteenthMain: inchesToPercentageOf(0.0625, 6.5);
+$eighthMain: inchesToPercentageOf(0.125, 6.5);
+$fourthMain: inchesToPercentageOf(0.25, 6.5);
+$halfMain: inchesToPercentageOf(0.5, 6.5);
 $oneMain: inchesToPercentageOf(1, 6.5);
 $twoMain: inchesToPercentageOf(2, 6.5);
-$eighthMain: inchesToPercentageOf(0.125, 6.5);
 
 $copy: #313131;
 $bkgd: #e2e2e2;
@@ -79,7 +100,6 @@ html,
 body {
     height: 100%;
 }
-
 body {
     @extend %font-body;
 
@@ -87,13 +107,16 @@ body {
     color: $copy;
     margin: 0;
 }
-
 h1 {
     @extend %font-head;
+
+    //margin: ($oneMain + (22 * $oneTwentyEighthMain)) 0 0;
+    margin: ($oneMain + (11 * $sixtyFourthMain)) 0 0;
 
     & > a {
         @extend %font-head-backlit;
         display: inline-block;
+        margin-bottom: $sixteenthMain;
         margin-left: 0 - $fourthContainer;
         padding: 0 $fourthContainer;
         text-decoration: none;
@@ -105,6 +128,7 @@ h1 {
 }
 h2 {
     @extend %font-head-backlit;
+
     margin: 1em (0 - $fourthContainer) 0;
 
     & > a {
@@ -126,11 +150,12 @@ small {
     float: right;
     line-height: 1.45;
 }
-
 ul {
     @extend %reset;
     list-style: none;
 }
+
+
 
 .h-resume {
     background: $fore;
@@ -142,20 +167,59 @@ ul {
 }
 
 .inner {
-    margin: $oneContainer;
+    margin: 0 $oneContainer $oneContainer;
 }
 
 .hd {
     @extend %clearfix;
 
-    .u-logo {
+    position: relative;
+
+    img.u-logo {
         float: right;
         max-width: 2in;
+//        position: absolute;
+//        right: 0;
+//        top: 0;
         width: $twoMain;
+    }
+    svg.u-logo {
+        float: right;
+//        height: 280px;
+//        max-width: 2in;
+        stroke: $copy;
+        stroke-width: 1%;
+        width: $twoMain;
+    }
+    div.u-logo {
+        display: inline-block;
+        float: right;
+        max-width: 2in;
+        position: relative;
+        width: $twoMain;
+
+        .aspect-ratio {
+            display: inline-block;
+            padding-top: percentage(280 / 200);
+        }
+
+        svg,
+        img {
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+        }
+
+        svg {
+            stroke: $copy;
+            stroke-width: 1%;
+        }
     }
 
     .p-summary {
-        margin-bottom: $eighthMain;
+        margin: $sixteenthMain 0 $eighthMain;
     }
 
     .u-photo {
@@ -172,171 +236,126 @@ ul {
     background: $bkgd;
     display: inline-block;
     font-size: 0.75em;
-    margin: 0.2em 0 0.25em;
+    margin: 0.25em 0;
     padding: 0.125em 0.5em;
 }
 
-//aside {
-//    overflow: hidden;
-//    margin-left: $oneContainer;
-//    margin-right: $oneContainer;
-
-//    .p-summary,
-//    .p-contact,
-//    .u-photo {
-//        margin-left: 0;
-//        margin-right: 0;
-//    }
-
-//    .p-summary {
-//        margin-bottom: 0.15in;
-//    }
-//}
-
-//main {
-//    clear: both;
-//}
-
-//ul {
-//    @extend %reset;
-//    list-style: none;
-//    margin-left: $oneContainer;
-//}
-
-//footer {
-//    margin-bottom: $oneContainer;
-//}
-
-//.u-logo {
-//    float: right;
-//    margin-right: $oneContainer;
-//    max-width: 2in;
-//    width: percentage(2 / 8.5);
-//}
-
-//.u-photo {
-//    float: left;
-//    margin-left: $oneContainer;
-//    margin-right: 0.15in;
-//}
 
 
-////.tag { display: inline-block; }
-////.tag:after { content: ', '; }
-////.tag:last-child:after { content: ''; }
-////.tag:last-child:before { content: ' and '; }
+/**
+ * Assumes '.touch' is equivalent to '.phone'?
+ */
+.touch {
+    .p-contact .p-adr {
+        a:last-of-type { @include hideFully(); }
+    }
+}
 
-//.touch .p-contact {
-//    .p-adr a:last-of-type {
-//        display: none;
-//        visibility: hidden;
-//    }
-//}
+.no-touch {
+    a[href^="tel"] {
+        color: $copy;
+        cursor: default;
+        pointer-events: none;
+        text-decoration: none;
+    }
 
-//.no-touch {
-//    a[href^="tel"] {
-//        color: $copy;
-//        cursor: default;
-//        pointer-events: none;
-//        text-decoration: none;
-//    }
+    .p-contact .p-adr {
+        a:first-of-type { @include showFully(inline-block); }
+        a:last-of-type { @include hideFully(); }
+    }
+}
 
-//    .p-contact .p-adr {
-//        a:first-of-type {
-//            display: inline-block;
-//            visibility: visible;
-//        }
-//        a:last-of-type {
-//            display: none;
-//            visibility: hidden;
-//        }
-//    }
-//}
+/**
+ * Used to force articles into columns.
+ * @see http://www.barrelny.com/blog/text-align-justify-and-rwd/
+ */
+@mixin justifyRWD() {
+    text-align: justify;
 
-//.p-skill,
-//.p-affiliation {
-//    margin: 0 $oneContainer;
-//    text-align: justify;
+    article {
+        display: inline-block;
+        text-align: left;
+        vertical-align: top;
+    }
+}
+.break {
+    display: inline-block;
+    width: 100%;
+}
 
-//    h2 {
-//        margin-left: -$fourthContainer;
-//        margin-right: -$fourthContainer;
-//    }
+/**
+ * Used to force hyphenated words to not break, because "word-break: keep-all;" is unimplemented.
+ * @see https://developer.mozilla.org/en-US/docs/Web/CSS/word-break
+ * @see https://bugs.webkit.org/show_bug.cgi?id=43917
+ */
+.no-break {
+    display: inline-block;
+}
 
-//    article {
-//        display: inline-block;
-//        text-align: left;
-//        vertical-align: top;
-//    }
+.p-skill {
+    li {
+        border-bottom: 1px solid $fore;
+        border-top: 1px solid $fore;
+        overflow: hidden;
 
-//    .break {
-//        display: inline-block;
-//        width: 100%;
-//    }
+        &:hover {
+            border-bottom: 1px dotted $bkgd;
+            border-top: 1px dotted $bkgd;
+        }
+    }
 
-//    h3, h4, h5, ul {
-//        margin-left: 0;
-//        margin-right: 0;
-//    }
-//}
+    @media screen and (min-width: 641px) {
+        @include justifyRWD();
 
-//.p-skill {
-//    article {
-//        width: 48%
-//    }
+        article {
+            //@extend %debug;
+            width: percentage(1 / 2) - 2;
+        }
+    }
+}
 
-//    h3 { margin-bottom: 0.25em; }
-//    li {
-//        border-bottom: 1px solid $fore;
-//        border-top: 1px solid $fore;
-//        overflow: hidden;
-//        padding-bottom: 0.25em;
-//        padding-top: 0.2em;
+.p-duration {
+    font-size: 0.5em;
+    text-transform: uppercase;
+    vertical-align: 15%;
+}
 
-//        &:hover {
-//            border-bottom: 1px dotted $bkgd;
-//            border-top: 1px dotted $bkgd;
-//        }
-//    }
-//}
+.p-rating {
+    float: right;
+    font-size: 0.625em;
+    line-height: 2.4;
 
-//.p-skill .p-summary,
-//.tag {
-//    @include border-radius(1em);
+    .pale {
+        color: $bkgd;
+    }
+}
 
-//    background: $bkgd;
-//    display: inline-block;
-//    font-size: 0.75em;
-//    padding: 0.125em 0.5em;
-//}
+.p-affiliation {
+    .p-job-title {
+        /**
+         * Currently keep-all is unimplemented in WebKit
+         * @see https://developer.mozilla.org/en-US/docs/Web/CSS/word-break
+         * @see https://bugs.webkit.org/show_bug.cgi?id=43917
+         */
+        word-break: keep-all;
+    }
 
-//.tags .tag {
-//    margin-bottom: 0.25em;
-//    margin-top: 0.2em;
-//}
+    @media screen and (min-width: 421px) {
+        @include justifyRWD();
 
-//.p-duration {
-//    font-size: 0.5em;
-//    text-transform: uppercase;
-//    vertical-align: 15%;
-//}
+        article {
+            //@extend %debug;
+            width: percentage(1 / 2) - 2;
+        }
+    }
 
-//.p-rating {
-//    float: right;
-//    font-size: 0.625em;
-//    line-height: 1;
-//    margin-top: 0.45em;
-//}
-
-//.pale {
-//    color: $bkgd;
-//}
-
-//.p-affiliation {
-//    article {
-//        width: 32%
-//    }
-//}
+    @media screen and (min-width: 641px) {
+        article {
+            //@extend %debug;
+            width: percentage(1 / 3) - 2.5;
+        }
+    }
+}
 
 
 
