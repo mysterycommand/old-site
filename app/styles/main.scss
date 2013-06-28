@@ -176,6 +176,12 @@ ul {
     @extend %reset;
     list-style-type: none;
 }
+section {
+    margin-bottom: 30px;
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
 article {
     margin-bottom: 18px;
 }
@@ -192,10 +198,8 @@ article {
     width: 100%;
 }
 
-.inner {
-    background: $fore url(../images/baseline.jpg) repeat 0 2px;
-    margin: 1in;
-}
+.baseline { background: $fore url(../images/baseline.jpg) repeat 0 2px; }
+.inner { margin: 1in; }
 
 .hd {
     &.h-card {
@@ -212,10 +216,6 @@ article {
             width: percentage(2 / 6.5);
         }
     }
-}
-
-.bd {
-    margin-bottom: 30px;
 }
 
 .h-event {
@@ -259,6 +259,8 @@ article {
         margin-bottom: 0;
         width: percentage(3.125 / 6.5);
     }
+
+    ul { margin-bottom: 18px; }
 
     li {
         @include justifyRWD();
