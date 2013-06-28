@@ -8,7 +8,7 @@
     "normalize-css": "~2.1.2"
   },
   "devDependencies": {
-    "chai": "1.6.1",
+    "chai": "~1.7.2",
     "mocha": "~1.11.0"
   }
 }
