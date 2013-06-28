@@ -151,7 +151,7 @@ h4 {
     line-height: 1.2;
     margin: 0;
 }
-h5 {
+h5, h6 {
     font-size: 12px;
     font-weight: 300;
     line-height: 1.5;
@@ -199,14 +199,13 @@ article {
 }
 
 .baseline { background: $fore url(../images/baseline.jpg) repeat 0 2px; }
-.inner { margin: 1in; }
+.inner { margin: percentage(1 / 8.5); }
 
 .hd {
     &.h-card {
         @include justifyRWD();
 
-        margin-bottom: 12px;
-
+        margin-bottom: 30px;
         .p-name {
             font-size: 84px;
             width: percentage(4.25 / 6.5);
@@ -215,8 +214,45 @@ article {
             margin-top: 20px;
             width: percentage(2 / 6.5);
         }
+
+        aside {
+            display: inline-block;
+            font-size: 0;
+            width: 100%;
+
+            .u-photo,
+            .p-links,
+            .p-summary { float: left; }
+        }
+        ul, li {
+            font-size: 12px;
+            overflow: hidden;
+        }
+        .p-role,
+        .u-url {
+            display: inline-block;
+            float: left;
+        }
+        .u-url { font-size: 0; }
     }
+
+//    &.h-card:last-of-type {
+//        @include justifyRWD();
+
+//        margin-bottom: 30px;
+//        .col:first-child { width: percentage(4.25 / 6.5); }
+//        .col:last-child { width: percentage(2 / 6.5); }
+//    }
 }
+
+//.u-logo {
+//    overflow: hidden;
+//    .aspect-ratio { padding-top: percentage(280 / 200); }
+//    path {
+//        stroke: $dark;
+//        stroke-width: 1px;
+//    }
+//}
 
 .h-event {
     @include justifyRWD();
