@@ -179,7 +179,7 @@ module.exports = function (grunt) {
                 options: {
                     // `name` and `out` is set by grunt-usemin
                     baseUrl: yeomanConfig.app + '/scripts',
-                    optimize: 'none',
+                    optimize: 'uglify',
                     // TODO: Figure out how to make sourcemaps work with grunt-usemin
                     // https://github.com/yeoman/grunt-usemin/issues/30
                     //generateSourceMaps: true,
@@ -191,8 +191,8 @@ module.exports = function (grunt) {
                     //uglify2: {} // https://github.com/mishoo/UglifyJS2
                     //
                     include: '../bower_components/requirejs/require',
-                    mainConfigFile: yeomanConfig.app + '/scripts/config.js',
-                    out: '.tmp/scripts/app.min.js'
+                    mainConfigFile: '<%= yeoman.app %>/scripts/config.js',
+                    out: '<%= yeoman.dist %>/scripts/app.min.js'
                 }
             }
         },
@@ -220,6 +220,12 @@ module.exports = function (grunt) {
             },
             html: ['<%= yeoman.dist %>/{,*/}*.html'],
             css: ['<%= yeoman.dist %>/styles/{,*/}*.css']
+        },
+        usereplace: {
+            options: {
+                dest: '<%= yeoman.dist %>'
+            },
+            html: '<%= yeoman.dist %>/index.html'
         },
         imagemin: {
             dist: {
@@ -284,9 +290,10 @@ module.exports = function (grunt) {
                     src: [
                         '*.{ico,txt,png}',
                         '.htaccess',
-                        'CNAME',
                         'images/{,*/}*.{webp,gif}',
                         'styles/fonts/*'
+                        //
+                        // 'CNAME'
                     ]
                 }, {
                     expand: true,
@@ -356,7 +363,8 @@ module.exports = function (grunt) {
         'uglify',
         'copy',
         'rev',
-        'usemin'
+        'usemin',
+        'usereplace'
     ]);
 
     grunt.registerTask('default', [
