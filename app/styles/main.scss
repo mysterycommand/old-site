@@ -1,15 +1,13 @@
-/**
- * @import "../bower_components/normalize-css/normalize.css";
- * This doesn't work like I want it to. Concatenated via 'usemin' in index.html.
- */
+@import "../bower_components/normalize-css/normalize.css";
 
 
 
-/**
- * Based on .hideFully from OOCSS
- * @see https://github.com/stubbornella/oocss/blob/master/oocss/src/components/utils/_hideFully.scss#L13
- */
 @mixin hideFully() {
+    /**
+     * Based on .hideFully from OOCSS
+     * @see https://github.com/stubbornella/oocss/blob/master/oocss/src/components/utils/_hideFully.scss#L13
+     */
+
     display: none !important;
     visibility: hidden;
 }
@@ -18,11 +16,12 @@
     visibility: visible;
 }
 
-/**
- * Used to force articles into columns.
- * @see http://www.barrelny.com/blog/text-align-justify-and-rwd/
- */
 @mixin justifyRWD($colSelector: '.col') {
+    /**
+     * Used to force articles into columns.
+     * @see http://www.barrelny.com/blog/text-align-justify-and-rwd/
+     */
+
     text-align: justify;
     font-size: 0;
 
@@ -55,11 +54,12 @@ $fore: #fafafa;
     padding: 0;
 }
 
-/**
- * Using %clearfix-micro from OOCSS
- * @see https://github.com/stubbornella/oocss/blob/master/oocss/src/components/utils/_clearfix-me.scss#L31
- */
 %clearfix {
+    /**
+     * Using %clearfix-micro from OOCSS
+     * @see https://github.com/stubbornella/oocss/blob/master/oocss/src/components/utils/_clearfix-me.scss#L31
+     */
+
     zoom: 1;
     &:before,
     &:after {
