@@ -1,4 +1,5 @@
 @import "../bower_components/normalize-css/normalize.css";
+@import "compass/css3/box-shadow";
 
 
 
@@ -43,7 +44,9 @@
 
 $dark: #222;
 $copy: #313131;
+$grey: #666;
 $lght: #999;
+
 $bkgd: #e2e2e2;
 $fore: #fafafa;
 
@@ -112,6 +115,15 @@ $fore: #fafafa;
  */
 .no-break {
     display: inline-block;
+}
+
+
+
+svg {
+    left: 0;
+    position: fixed;
+    top: 0;
+    z-index: -1;
 }
 
 
@@ -194,14 +206,26 @@ article {
 
 
 .container {
-    background: $fore;
+    @include single-box-shadow(rgba(0,0,0,0.1), 0, 0, 100px, 0, false);
+
+//    background: $fore;
+    background: rgba(255,255,255,0.8);
     margin: 0 auto;
     max-width: 8.5in;
     overflow: hidden;
     width: 100%;
 }
 
-.baseline { background: $fore url(../images/baseline.jpg) repeat 0 2px; }
+//.baseline { background: $fore url(../images/baseline.jpg) repeat 0 2px; }
+.baseline {
+    background-image: -webkit-linear-gradient(top,
+        transparent percentage(17 / 18),
+        magenta percentage(17 / 18),
+        transparent
+    );
+    background-position: 0 2px;
+    background-size: 100% 18px;
+}
 .inner { margin: percentage(1 / 8.5); }
 
 .hd {
