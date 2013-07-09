@@ -19,7 +19,7 @@
 
 @mixin justifyRWD($colSelector: '.col') {
     /**
-     * Used to force articles into columns.
+     * Used to force .col elements into columns.
      * @see http://www.barrelny.com/blog/text-align-justify-and-rwd/
      */
 
@@ -144,7 +144,6 @@ body {
 h1 {
     @extend %fontHead;
 
-    font-size: 84px;
     line-height: 1;
     margin: 0;
 }
@@ -174,7 +173,7 @@ h5, h6 {
 }
 p { margin: 0; }
 a {
-    background: yellow;
+    background: rgba(255,255,0,0.5);
     color: inherit;
     display: inline-block;
     padding: 0 (1/3)*1em;
@@ -221,7 +220,7 @@ article {
     background-image: -webkit-linear-gradient(top,
         transparent percentage(17 / 18),
         magenta percentage(17 / 18),
-        transparent
+        transparent 100%
     );
     background-position: 0 2px;
     background-size: 100% 18px;
@@ -233,13 +232,24 @@ article {
         @include justifyRWD();
 
         margin-bottom: 30px;
+
         .p-name {
-            font-size: 84px;
-            width: percentage(4.25 / 6.5);
+            font-size: 45px;
+            width: 100%;
         }
         .p-contact {
-            margin-top: 20px;
-            width: percentage(2 / 6.5);
+            margin-top: 10px;
+            width: 100%;
+        }
+        @media (min-width: 612px) {
+            .p-name {
+                font-size: 84px;
+                width: percentage(4.25 / 6.5);
+            }
+            .p-contact {
+                margin-top: 20px;
+                width: percentage(2 / 6.5);
+            }
         }
 
         aside {
@@ -283,9 +293,15 @@ article {
 
 .h-event {
     @include justifyRWD();
-    .col:first-child { width: percentage(4.25 / 6.5); }
-    .col:last-child { width: percentage(2 / 6.5); }
+
+    .col:first-child { width: 100%; }
+    .col:last-child { width: 100%; }
     .p-summary { color: $lght; }
+
+    @media (min-width: 612px) {
+        .col:first-child { width: percentage(4.25 / 6.5); }
+        .col:last-child { width: percentage(2 / 6.5); }
+    }
 }
 
 .p-experience {
@@ -308,28 +324,36 @@ article {
 }
 
 .p-affiliation {
-    @include justifyRWD();
-    .col {
-        margin-bottom: 0;
-        width: percentage(2 / 6.5);
-    }
     .p-job-title { color: $lght; }
+
+    @media (min-width: 612px) {
+        @include justifyRWD();
+
+        .col {
+            margin-bottom: 0;
+            width: percentage(2 / 6.5);
+        }
+    }
 }
 
 .p-skill {
-    @include justifyRWD();
-    .col {
-        margin-bottom: 0;
-        width: percentage(3.125 / 6.5);
-    }
-
-    ul { margin-bottom: 18px; }
-
     li {
         @include justifyRWD();
+
         .p-summary { width: percentage(1.375 / 3.125); }
-        .p-duration { text-align: right; width: percentage(0.625 / 3.125); }
-        .p-rating { text-align: right; width: percentage(0.75 / 3.125); }
+        .p-duration { text-align: right; width: percentage(0.75 / 3.125); }
+        .p-rating { text-align: right; width: percentage(0.875 / 3.125); }
+    }
+
+    @media (min-width: 612px) {
+        @include justifyRWD();
+
+        .col {
+            margin-bottom: 0;
+            width: percentage(3.125 / 6.5);
+        }
+
+        ul { margin-bottom: 18px; }
     }
 }
 
