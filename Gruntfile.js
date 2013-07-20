@@ -222,9 +222,6 @@ module.exports = function (grunt) {
             css: ['<%= yeoman.dist %>/styles/{,*/}*.css']
         },
         usereplace: {
-            options: {
-                dest: '<%= yeoman.dist %>'
-            },
             html: '<%= yeoman.dist %>/index.html'
         },
         imagemin: {

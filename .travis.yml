@@ -24,7 +24,7 @@ env:
         # travis encrypt GH_OAUTH_TOKEN=XXXXXXXXXXXXXXX
         #
         # User specific env variables
-        - secure: "GEeP/uK1Uqly4xgbMb5bfMc0EtWMewKlIhtUTEf82F4JRDAkuLhMkwpZ2/o16xwQhq1LNdfAO126G/ILjKy3p+WPN2fmMsqdwVgkdkXxboUeldlnGI+5hhxe/XSrSVXvhucfxWaUCTnf/xzMHyY9JSRN5PjuqtBW3yV3UV72JXs="
+        - secure: "aXnbZuKQo7mzaipfDZdgPfHWnBX+v8JWr9vLPFo/qMDzpBAJx+aAaijL+1YnmWGysKtAIJ64/jF7nU+La8QNmJWAQEJ3iEFwwl28FcBO+Te4f0DB0M85SXg8R+oG5cAl66KhF1HyZqQUgNa5bW1hKRVwrmFOq0CqIDAXceHiTAw="
         - GH_OWNER: mysterycommand
         - GH_PROJECT_NAME: mysterycommand.github.io
         # This .travis.yml file instructs travis-ci.org to build your develop branch using `yeoman build`
@@ -43,7 +43,6 @@ after_success:
     # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
     - git submodule add -b master https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} site > /dev/null 2>&1
     - cd site
-    # - node ../app/scripts/util/cleanup.js ../dist/index.html
     - if git checkout master; then git checkout -b master; fi
     - git rm -r .
     - cp -R ../dist/* .
@@ -51,6 +50,6 @@ after_success:
     - git add -f .
     - git config user.email "matt@mysterycommand.com"
     - git config user.name "Matt Hayes"
-    - git commit -am "continuous deploy [ci skip]"
+    - git commit -am "adding the yeoman build files to master [ci skip]"
     # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
     - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:master > /dev/null 2>&1

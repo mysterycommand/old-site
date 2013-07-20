@@ -2,13 +2,13 @@
   "name": "mysterycommand-github-io",
   "version": "0.0.1",
   "dependencies": {
-    "requirejs": "~2.1.6",
+    "requirejs": "~2.1.8",
     "modernizr": "~2.6.2",
-    "jquery": "~2.0.2",
+    "jquery": "~2.0.3",
     "normalize-css": "~2.1.2"
   },
   "devDependencies": {
     "chai": "~1.7.2",
-    "mocha": "~1.11.0"
+    "mocha": "~1.12.0"
   }
 }
