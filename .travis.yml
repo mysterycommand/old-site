@@ -2,8 +2,8 @@ language: node_js
 node_js:
     - stable
 branches:
-    only:
-    - develop
+    except:
+    - master
 script:
     - npm test
     - npm run build
