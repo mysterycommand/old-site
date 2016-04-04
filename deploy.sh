@@ -6,6 +6,9 @@ rm -rf deploy || exit 0;
 git clone --quiet --branch=master --single-branch "https://${GH_TOKEN}@${GH_REPOSITORY}" deploy > /dev/null 2>&1
 cd deploy
 
+echo $TRAVIS_BRANCH
+echo $TRAVIS_PULL_REQUEST
+
 if [[ ${TRAVIS_BRANCH} == "develop" ]]; then
 
     if [[ ${TRAVIS_PULL_REQUEST} != "false" ]]; then
