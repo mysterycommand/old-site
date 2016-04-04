@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "An experimental website.",
   "scripts": {
+    "build": "gulp",
+    "clean": "rm -rf deploy/ public/",
+    "deploy": "bash ./deploy.sh",
+    "predeploy": "npm run clean && npm run build",
     "test": "mocha --compilers js:babel-register './test/**/*.test.js'"
   },
   "repository": {
