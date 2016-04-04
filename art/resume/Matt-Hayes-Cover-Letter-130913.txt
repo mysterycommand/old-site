@@ -1,0 +1,25 @@
+Matt Hayes
+2717 Santa Rosa St.
+Austin, TX 78702
+(612) 501-5383
+
+To whom it may concern,
+
+Please consider me for the Web Developer position at Red Frog Events (Chicago). I have over ten years experience building applications and custom user interfaces for brands of all sizes. I am a great collaborator, a code snob, and a thoughtful and ambitious application architect looking for a work-family of intimidatingly talented designers and developers to succeed and fail beside, to learn from, and to lead.
+
+My experience working on multi-disciplinary teams began in the Visualization program at MCAD. There, my classmates and I were challenged to solve real problems for real clients from day one. Our teachers and professional mentors encouraged us to take on different jobs from project to project before pursuing a particular course of study more deeply. This hands-on experience with various roles within a creative team has made me a more effective and empathetic communicator, planner, and problem solver.
+
+In college, I focused on client-side and user experience development. This focus has since broadened and deepened to include games and gamification, social media integration, information design, data visualization, performance tuning and optimization, application architecture, product life-cycle and release planning, test-driven development, and continuous integration and deployment. My exposure to these disciplines came through creating applications with great agencies like: B-Swing, Azul 7, Puny Entertainment, ArcStone, and The Nerdery, and for national brands like Yo Gabba Gabba, United Health Group, Target, FedEx, Oxygen Network, Calvin Klein, Jello, HP, Oscar Mayer, EA Sports, and Home Shopping Network.
+
+I have been able to work with and for so many great people because I am good at what I do, and I am good at what I do because I love doing it. I pursue new skills and track emerging standards doggedly. I pour over source code with my morning coffee. I consume W3C draft specifications on my lunch hour, and I fall asleep listenning to tech talk lullabies. I love interactive and the web because it appeals to two important aspects of my personality. To my artistic side, code is a pure medium that has allowed me to bring my imagination to life. To my analytical side, the web is a laboratory within which I develop, test and refine my ideas.
+
+For the last four years, I have been an independent contractor. Working for myself has sharpened my skills, and made me a more productive, proactive and self-disciplined programmer. Yet I find myself hankering for bigger challenges. I love making interactive experiences sing, working out the intricacies of individual interface components and designing and building “single-serving” applications, but I yearn for a deeper relationship with my peers and my projects, the opportunity to refine and codify my process, and the responsibilities of leadership.
+
+My love of web development was born on a team with real clients’ problems to solve. My experience will make me a great asset to Red Frog. I am an artist and an analyst. I am a life-long learner and a leader. I am ready to take the next step in my career. I hope you will allow me the opportunity to take this next step with you.
+
+Sincerely,
+//Matt Hayes
+matt@mysterycommand.com
+http://mysterycommand.com
+https://twitter.com/mysterycommand
+https://github.com/mysterycommand
