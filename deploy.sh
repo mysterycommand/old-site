@@ -12,11 +12,13 @@ echo $TRAVIS_PULL_REQUEST
 if [[ ${TRAVIS_BRANCH} == "develop" ]]; then
 
     if [[ ${TRAVIS_PULL_REQUEST} != "false" ]]; then
-        DEPLOY_DIR = ./staging/${TRAVIS_PULL_REQUEST}
+        DEPLOY_DIR="./staging/${TRAVIS_PULL_REQUEST}"
         mkdir -p ${DEPLOY_DIR}
     else
-        DEPLOY_DIR = .
+        DEPLOY_DIR="."
     fi
+
+    echo $DEPLOY_DIR
 
     git rm -r ${DEPLOY_DIR}
     cp -R ../public/* ${DEPLOY_DIR}
