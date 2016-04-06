@@ -20,7 +20,7 @@ if [[ ${TRAVIS_BRANCH} == "develop" ]]; then
 
     echo $DEPLOY_DIR
 
-    git rm -r --ignore-unmatch ${DEPLOY_DIR}
+    git rm -r --ignore-unmatch ${DEPLOY_DIR}/*
     cp -R ../public/* ${DEPLOY_DIR}
 
     git config user.name "Travis CI"
