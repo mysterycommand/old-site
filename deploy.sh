@@ -24,7 +24,7 @@ if [[ ${TRAVIS_BRANCH} == "develop" ]]; then
     git config push.default simple
 
     git add .
-    git commit --allow-empty -am "Travis buld #${TRAVIS_BUILD_NUMBER} - `date +\"%D %T\"` [ci skip]"
+    git commit --allow-empty -am "Travis buld #${TRAVIS_BUILD_NUMBER} - `date +\"%D %T\"`"
     git push
 
 fi
