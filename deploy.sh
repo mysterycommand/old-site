@@ -15,8 +15,10 @@ if [[ ${TRAVIS_BRANCH} == "develop" ]]; then
         DEPLOY_DIR="."
     fi
 
-    GLOBIGNORE='staging'
-    git rm -r --ignore-unmatch ${DEPLOY_DIR}/*
+    shopt -s extglob
+    git rm -r --ignore-unmatch "${DEPLOY_DIR}/!(staging)"
+    shopt -u extglob
+
     cp -R ../public/* ${DEPLOY_DIR}
 
     git config user.name "Travis CI"
