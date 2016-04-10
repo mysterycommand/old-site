@@ -22,5 +22,5 @@ git config user.email "travis@travis-ci.org"
 git config push.default simple
 
 git add .
-git commit --allow-empty -am "Travis buld #${TRAVIS_BUILD_NUMBER} - `date +\"%D %T\"`"
+git commit --allow-empty -am "Travis buld #${TRAVIS_BUILD_NUMBER} - `date +\"%D %T\"` [ci-skip]"
 git push
