@@ -7,6 +7,9 @@ gulp.task('html', () => {
             removeComments: true,
             collapseWhitespace: true,
             conservativeCollapse: true,
+            minifyCSS: {
+                keepSpecialComments: 0,
+            },
             removeTagWhitespace: true,
             removeAttributeQuotes: true,
             removeRedundantAttributes: true,
