@@ -9,7 +9,7 @@ script:
     - npm run build
 env:
     global:
-    - GH_REPOSITORY: github.com/${TRAVIS_REPO_SLUG}
+    - GH_REPO: github.com/${TRAVIS_REPO_SLUG}
     - secure: SAbwlfrh4K+aljBCSOm8+Z3GNww8aO++6OeZk3ngJUCJ21QAMspH685z7jkFfEFBP1y03MEmZn52bg+7hnIOdKcj+tSDqiK39sAT48JG8Vn7kI/D8NdC2nLGLr10QCxKBt6L3paxikpWvas/+5dCF6QF51sSfUphu0OAd33R0Es=
 after_success:
     - npm run deploy
