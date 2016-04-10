@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 
-rm -rf deploy || exit 0;
-
 git clone --quiet --branch=master --single-branch "https://${GH_TOKEN}@${GH_REPOSITORY}" deploy > /dev/null 2>&1
 cd deploy
 
