@@ -16,7 +16,7 @@ if [[ ${TRAVIS_BRANCH} == "develop" ]]; then
     fi
 
     shopt -s extglob
-    git rm -r --ignore-unmatch "${DEPLOY_DIR}/!(staging)"
+    git rm -r --ignore-unmatch "$(ls -x DEPLOY_DIR/!(staging))"
     shopt -u extglob
 
     cp -R ../public/* ${DEPLOY_DIR}
