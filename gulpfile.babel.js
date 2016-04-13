@@ -1,23 +1,10 @@
 import gulp from 'gulp';
 import ghtmlmin from 'gulp-htmlmin';
 
-gulp.task('html', () => {
-    return gulp.src(['source/*.html'])
-        .pipe(ghtmlmin({
-            removeComments: true,
-            collapseWhitespace: true,
-            conservativeCollapse: true,
-            removeTagWhitespace: true,
-            removeAttributeQuotes: true,
-            removeRedundantAttributes: true,
-            quoteCharacter: '"',
-        }))
-        .pipe(gulp.dest('public'));
-});
+import html from './config/gulp/html';
+import txt from './config/gulp/txt';
 
-gulp.task('txt', () => {
-    return gulp.src(['source/*.txt'])
-        .pipe(gulp.dest('public'));
-});
+gulp.task('html', html);
+gulp.task('txt', txt);
 
 gulp.task('default', ['html', 'txt']);
