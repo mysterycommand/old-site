@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "An experimental website.",
   "scripts": {
-    "build": "webpack --config=config/webpack/build.babel.js && gulp",
+    "build": "webpack --config=config/webpack/production.babel.js && gulp",
     "clean": "rm -rf deploy/ public/",
     "deploy": "node ./deploy.js",
     "predeploy": "npm run clean && npm run build",
-    "start": "webpack-dev-server --config=config/webpack/start.babel.js --port=3000 --inline --hot",
+    "start": "webpack-dev-server --config=config/webpack/development.babel.js --port=3000 --inline --hot",
     "test": "mocha --compilers js:babel-register './test/**/*.test.js'"
   },
   "repository": {
