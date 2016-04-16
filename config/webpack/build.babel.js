@@ -3,6 +3,7 @@ import webpack from 'webpack';
 
 import base from './base.babel';
 
+process.env.NODE_ENV || (process.env.NODE_ENV='production');
 export default mergeWith(base, {
     devtool: '#source-map',
 

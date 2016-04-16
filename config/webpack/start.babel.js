@@ -2,6 +2,7 @@ import { merge } from 'lodash';
 
 import base from './base.babel';
 
+process.env.NODE_ENV || (process.env.NODE_ENV='development');
 export default merge(base, {
     devServer: {
         contentBase: './source',
