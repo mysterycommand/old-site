@@ -1,6 +1,6 @@
 import { merge } from 'lodash';
 
-import base from './base.babel';
+import base from './base';
 
 process.env.NODE_ENV || (process.env.NODE_ENV='development');
 export default merge(base, {
