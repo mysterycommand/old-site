@@ -31,7 +31,7 @@ const steps = [{
     cmd: `mkdir -p ${outDir}`,
     opts: null,
 },{
-    cmd: `git rm -r --ignore-unmatch ${glob.sync(`${outDir}/!(staging)`).join() || '+'}`,
+    cmd: `git rm -r --ignore-unmatch ${glob.sync(`${outDir}/!(staging)`).join() || '?'}`,
     opts: null,
 },{
     cmd: `cp -R ${publicDir}/* ${outDir}`,
