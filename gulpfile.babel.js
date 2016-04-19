@@ -1,23 +1,14 @@
 import gulp from 'gulp';
-import ghtmlmin from 'gulp-htmlmin';
 
-gulp.task('html', () => {
-    return gulp.src(['source/*.html'])
-        .pipe(ghtmlmin({
-            removeComments: true,
-            collapseWhitespace: true,
-            conservativeCollapse: true,
-            removeTagWhitespace: true,
-            removeAttributeQuotes: true,
-            removeRedundantAttributes: true,
-            quoteCharacter: '"',
-        }))
-        .pipe(gulp.dest('public'));
-});
+import copy from './config/gulp/copy';
+import deploy from './config/gulp/deploy';
+import html from './config/gulp/html';
 
-gulp.task('txt', () => {
-    return gulp.src(['source/*.txt'])
-        .pipe(gulp.dest('public'));
-});
+gulp.task('copy', copy);
+gulp.task('deploy', deploy);
+gulp.task('html', html);
 
-gulp.task('default', ['html', 'txt']);
+gulp.task('default', [
+    'copy',
+    'html',
+]);

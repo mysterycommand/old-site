@@ -1,8 +1,9 @@
 import { isArray, mergeWith } from 'lodash';
 import webpack from 'webpack';
 
-import base from './base.babel';
+import base from './base';
 
+process.env.NODE_ENV || (process.env.NODE_ENV='production');
 export default mergeWith(base, {
     devtool: '#source-map',
 
