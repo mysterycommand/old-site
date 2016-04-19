@@ -10,7 +10,7 @@ script:
 env:
     global:
     - GH_REPO: github.com/${TRAVIS_REPO_SLUG}
-    - secure: SAbwlfrh4K+aljBCSOm8+Z3GNww8aO++6OeZk3ngJUCJ21QAMspH685z7jkFfEFBP1y03MEmZn52bg+7hnIOdKcj+tSDqiK39sAT48JG8Vn7kI/D8NdC2nLGLr10QCxKBt6L3paxikpWvas/+5dCF6QF51sSfUphu0OAd33R0Es=
+    - secure: MN9+sX70CtI9IJZdYNNJq86gXcLnf457dvEh0fHjdiFqc55mP6+SX5wa9gHq6YVHgsWTomr2BK3olo50YAPvZCxFuWAL5RiNNM/aZU0PfAQESuYpDdfnGc36ckWetKJNB6gJFp4g3IkO1TbNcqySQzHzXFEiiiPyNBDdLM4Qmpk=
 after_success:
     - npm run deploy
 

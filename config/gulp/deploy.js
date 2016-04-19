@@ -64,7 +64,6 @@ export default () => {
                     if (error) {
                         reject(error);
                     }
-                    console.log(cmd);
                     resolve(stdout);
                 });
             });
