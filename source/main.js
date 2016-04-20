@@ -80,6 +80,51 @@ class Icon extends Component {
                         'Z'
                     ].join(' ')}/>
                 </g>
+                <g transform={`translate(${translateX - radius * 2.3}, ${translateY})`} fill="#ff0">
+                    <circle cx={startX} cy={startY} r="3"/>
+                    <circle cx={turnX} cy={turnY} r="3"/>
+                    <circle cx={squareMedLeft} cy={squareMedTop} r="3"/>
+                    <circle cx={squareMedLeft + squareMed} cy={squareMedTop} r="3"/>
+                    <circle cx={squareMedLeft + squareMed + radiusMed} cy={squareMedTop} r="3"/>
+                    <circle cx={squareMedLeft + squareMed} cy={squareMedTop - radiusMed} r="3"/>
+                    <circle cx={halfWidth + halfSquareMed} cy={halfHeight + halfSquareMed + radiusMed} r="3"/>
+                    <circle cx={halfWidth + halfSquareMed + radiusMed} cy={halfHeight + halfSquareMed} r="3"/>
+                    <circle cx={halfWidth + halfSquareMed} cy={halfHeight + halfSquareMed} r="3"/>
+
+                    <circle cx={halfWidth - halfSquareMed + radiusSml} cy={halfHeight + halfSquareMed - radiusSml} r="3"/>
+                    <circle cx={halfWidth - halfSquareMed} cy={halfHeight + halfSquareMed - radiusSml} r="3"/>
+                    <circle cx={halfWidth - halfSquareMed + radiusSml} cy={halfHeight + halfSquareMed} r="3"/>
+                </g>
+                <g transform={`translate(${translateX - radius * 2.3}, ${translateY})`} fill="#0ff">
+                    <circle cx={squareMedLeft} cy={circleLrgCenterY} r="3"/>
+                    <circle cx={squareMedLeft + squareMed + radiusMed} cy={squareMedTop - radiusMed} r="3"/>
+                    <circle cx={halfWidth + halfSquareMed + radiusMed} cy={halfHeight + halfSquareMed + radiusMed} r="3"/>
+
+                    <circle cx={halfWidth - halfSquareMed} cy={halfHeight + halfSquareMed} r="3"/>
+                </g>
+                <g transform={`translate(${translateX - radius * 2.3}, ${translateY})`}>
+                    {/*
+                    <line x1={squareMedLeft} y1={squareMedTop} x2={circleLrgRight} y2={circleLrgCenterY} stroke="#f0f"/>
+                    <line x1={startX} y1={startY} x2={turnX} y2={turnY} stroke="#f0f"/>
+                    <rect x={rectX} y={rectY} width={rectWidth} height={rectHeight} fill="#0ff" fillOpacity="0.2"/>
+                    */}
+                    <path stroke="#f0f" strokeWidth="1" fill="none" d={[
+                        'M', startX, startY,
+                        'A', radiusLrg, radiusLrg, 0, 1, 1, turnX, turnY,
+                        'A', radiusLrg, radiusLrg, 0, 0, 0, squareMedLeft, squareMedTop,
+                        'L', squareMedLeft + squareMed + radiusMed, squareMedTop,
+                        'A', radiusMed, radiusMed, 0, 1, 0, squareMedLeft + squareMed, squareMedTop - radiusMed,
+                        'L', halfWidth + halfSquareMed, halfHeight + halfSquareMed + radiusMed,
+                        'A', radiusMed, radiusMed, 0, 1, 0, halfWidth + halfSquareMed + radiusMed, halfHeight + halfSquareMed,
+                        'L', halfWidth + halfSquareMed, halfHeight + halfSquareMed
+                    ].join(' ')}/>
+                    <path stroke="#f0f" strokeWidth="1" fill="none" d={[
+                        'M', halfWidth - halfSquareMed + radiusSml, halfHeight + halfSquareMed - radiusSml,
+                        'L', halfWidth - halfSquareMed, halfHeight + halfSquareMed - radiusSml,
+                        'A', radiusSml, radiusSml, 0, 1, 0, halfWidth - halfSquareMed + radiusSml, halfHeight + halfSquareMed,
+                        'Z'
+                    ].join(' ')}/>
+                </g>
                 {/*
                 <line x1="0" y1="0" x2={width} y2={height} stroke="#f00"/>
                 <line x1="0" y1={height} x2={width} y2="0" stroke="#f00"/>
