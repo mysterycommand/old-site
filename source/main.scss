@@ -53,10 +53,6 @@ h1 {
     margin: 0;
 }
 
-p {
-    margin: 0;
-}
-
 a {
     display: inline-block;
     padding: 0 0.2em;
@@ -71,6 +67,51 @@ a:visited {
 
 a:hover {
     background-color: $hex-pure-yellow;
+}
+
+address {
+    display: flex;
+    font-size: 0.9em;
+    font-style: normal;
+    justify-content: space-between;
+    margin: 0 0.1em 1em;
+
+    .direct a {
+        display: block;
+        text-decoration: none;
+    }
+
+    .social {
+        max-width: 4.8em;
+
+        li {
+            margin: 0.3em;
+        }
+
+        picture,
+        img {
+            height: 1.8em;
+            width: 1.8em;
+        }
+    }
+
+    .social a,
+    .social li {
+        display: inline-block;
+    }
+}
+
+picture,
+img {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+ul,
+ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 @media screen and (max-width: 435px) {
