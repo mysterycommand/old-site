@@ -1,0 +1,81 @@
+$hex-copy-black: #444;
+$hex-pure-yellow: #ff0;
+$hex-mercury: #e7e7e7;
+$hex-alabaster: #fafafa;
+$rgba-30per-black: rgba(0, 0, 0, 0.3);
+
+html,
+body,
+main {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    color: $hex-copy-black;
+    font-family: HelveticaNeue-Light,
+                "Helvetica Neue Light",
+                "Helvetica Neue",
+                 Helvetica,
+                 Arial,
+                "Lucida Grande",
+                 sans-serif;
+    line-height: 1.2;
+    margin: 0;
+}
+
+main {
+    align-items: center;
+    background-color: $hex-mercury;
+    display: flex;
+}
+
+header {
+    background-color: $hex-alabaster;
+    box-shadow: 0 0 3em $rgba-30per-black;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+h1 {
+    font-family: HelveticaNeue-UltraLight,
+                "Helvetica Neue UltraLight",
+                 HelveticaNeue-Light,
+                "Helvetica Neue Light",
+                "Helvetica Neue",
+                 Helvetica,
+                 Arial,
+                "Lucida Grande",
+                 sans-serif;
+    font-size: 5em;
+    font-weight: 100;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    display: inline-block;
+    padding: 0 0.2em;
+    text-decoration: none;
+}
+
+a,
+a:active,
+a:visited {
+    color: $hex-copy-black;
+}
+
+a:hover {
+    background-color: $hex-pure-yellow;
+}
+
+@media screen and (max-width: 435px) {
+    h1 {
+        line-height: 1;
+        margin: 0.1em 0;
+    }
+}
