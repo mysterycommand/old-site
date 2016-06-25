@@ -85,6 +85,8 @@ address {
     }
 
     .social {
+        display: flex;
+        flex-wrap: wrap;
         width: 84px;
 
         li {
@@ -100,7 +102,7 @@ address {
 
     .social a,
     .social li {
-        display: inline-block;
+        display: block;
     }
 }
 
