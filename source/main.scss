@@ -40,14 +40,14 @@ main {
 
 header {
     background-color: $hex-alabaster;
-    box-shadow: 0 0 3em $rgba-30per-black;
+    box-shadow: 0 0 48px $rgba-30per-black;
     margin: 0 auto;
-    padding: 2em;
+    padding: 32px;
 }
 
 h1 {
     font-family: $fam-ultra;
-    font-size: 5em;
+    font-size: 80px;
     font-weight: 100;
     letter-spacing: 1px;
     margin: 0;
@@ -72,16 +72,16 @@ address {
     display: flex;
     font-style: normal;
     justify-content: space-between;
-    margin: 0 0.1em 1em;
+    margin: 6px 2px 0;
 
     .direct {
         margin: 6px 0;
-    }
 
-    .direct a {
-        display: block;
-        padding: 0 0.2em;
-        text-decoration: none;
+        a {
+            display: block;
+            padding: 0 4px;
+            text-decoration: none;
+        }
     }
 
     .social {
@@ -120,6 +120,6 @@ ol {
 @media screen and (max-width: 435px) {
     h1 {
         line-height: 1;
-        margin: 0.1em 0;
+        margin: 2px 0;
     }
 }
