@@ -2,7 +2,21 @@ $hex-copy-black: #444;
 $hex-pure-yellow: #ff0;
 $hex-mercury: #e7e7e7;
 $hex-alabaster: #fafafa;
+
 $rgba-30per-black: rgba(0, 0, 0, 0.3);
+
+$fam-light: HelveticaNeue-Light,
+           "Helvetica Neue Light",
+           "Helvetica Neue",
+            Helvetica,
+            Arial,
+           "Lucida Grande",
+            sans-serif;
+$fam-ultra: HelveticaNeue-UltraLight,
+           "Helvetica Neue UltraLight",
+            $fam-light;
+
+$line-height: 18 / 16;
 
 html,
 body,
@@ -13,14 +27,8 @@ main {
 
 body {
     color: $hex-copy-black;
-    font-family: HelveticaNeue-Light,
-                "Helvetica Neue Light",
-                "Helvetica Neue",
-                 Helvetica,
-                 Arial,
-                "Lucida Grande",
-                 sans-serif;
-    line-height: 1.2;
+    font-family: $fam-light;
+    line-height: $line-height;
     margin: 0;
 }
 
@@ -38,15 +46,7 @@ header {
 }
 
 h1 {
-    font-family: HelveticaNeue-UltraLight,
-                "Helvetica Neue UltraLight",
-                 HelveticaNeue-Light,
-                "Helvetica Neue Light",
-                "Helvetica Neue",
-                 Helvetica,
-                 Arial,
-                "Lucida Grande",
-                 sans-serif;
+    font-family: $fam-ultra;
     font-size: 5em;
     font-weight: 100;
     letter-spacing: 1px;
@@ -55,7 +55,6 @@ h1 {
 
 a {
     display: inline-block;
-    padding: 0 0.2em;
     text-decoration: none;
 }
 
@@ -71,27 +70,31 @@ a:hover {
 
 address {
     display: flex;
-    font-size: 0.9em;
     font-style: normal;
     justify-content: space-between;
     margin: 0 0.1em 1em;
 
+    .direct {
+        margin: 6px 0;
+    }
+
     .direct a {
         display: block;
+        padding: 0 0.2em;
         text-decoration: none;
     }
 
     .social {
-        max-width: 4.8em;
+        width: 84px;
 
         li {
-            margin: 0.3em;
+            margin: 6px;
         }
 
         picture,
         img {
-            height: 1.8em;
-            width: 1.8em;
+            height: 30px;
+            width: 30px;
         }
     }
 
