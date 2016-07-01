@@ -1,5 +1,3 @@
-import './main.scss';
-
 if (process.env.NODE_ENV !== 'production') {
     const cb = window.webpackHotUpdate;
 
@@ -15,3 +13,5 @@ if (process.env.NODE_ENV !== 'production') {
         return cb(...args);
     }
 }
+
+import './main.scss';
