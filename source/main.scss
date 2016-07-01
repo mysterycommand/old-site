@@ -1,0 +1,128 @@
+$hex-copy-black: #444;
+$hex-pure-yellow: #ff0;
+$hex-mercury: #e7e7e7;
+$hex-alabaster: #fafafa;
+
+$rgba-30per-black: rgba(0, 0, 0, 0.3);
+
+$fam-light: HelveticaNeue-Light,
+           "Helvetica Neue Light",
+           "Helvetica Neue",
+            Helvetica,
+            Arial,
+           "Lucida Grande",
+            sans-serif;
+
+$fam-ultra: HelveticaNeue-UltraLight,
+           "Helvetica Neue UltraLight",
+            $fam-light;
+
+$line-height: 18 / 16;
+
+html,
+body,
+main {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    color: $hex-copy-black;
+    font-family: $fam-light;
+    line-height: $line-height;
+    margin: 0;
+}
+
+main {
+    align-items: center;
+    background-color: $hex-mercury;
+    display: flex;
+}
+
+header {
+    background-color: $hex-alabaster;
+    box-shadow: 0 0 48px $rgba-30per-black;
+    margin: 0 auto;
+    padding: 32px;
+}
+
+h1 {
+    font-family: $fam-ultra;
+    font-size: 80px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+a,
+a:active,
+a:visited {
+    color: $hex-copy-black;
+}
+
+a:hover {
+    background-color: $hex-pure-yellow;
+}
+
+address {
+    display: flex;
+    font-style: normal;
+    justify-content: space-between;
+    margin: 6px 2px 0;
+
+    .direct {
+        margin: 6px 0;
+
+        a {
+            display: block;
+            padding: 0 4px;
+            text-decoration: none;
+        }
+    }
+
+    .social {
+        display: flex;
+        flex-wrap: wrap;
+        width: 84px;
+
+        li {
+            margin: 6px;
+        }
+
+        picture,
+        img {
+            height: 30px;
+            width: 30px;
+        }
+    }
+
+    .social a,
+    .social li {
+        display: block;
+    }
+}
+
+picture,
+img {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+ul,
+ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 435px) {
+    h1 {
+        line-height: 1;
+        margin: 2px 0;
+    }
+}

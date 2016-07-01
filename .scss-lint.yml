@@ -1,0 +1,10 @@
+scss_files: source/**/*.scss
+linters:
+    Indentation:
+        enabled: true
+        allow_non_nested_indentation: false
+        character: space # 'space' or 'tab'
+        width: 4
+        severity: error
+    LeadingZero:
+        style: include_zero
